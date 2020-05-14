@@ -1,16 +1,24 @@
 from urllib.parse import urlparse
 
+import validators
+
 
 def is_url(url, strict=False):
 
     final_url = _get_final_url(url, strict)
 
-    is_url_result = _is_url(final_url)
+    is_url_result = _is_url_by_validators(final_url)
 
     return is_url_result
 
 
-def _is_url(url):
+def _is_url_by_validators(url):
+
+    result = validators.url(url)
+    return bool(result)
+
+
+def _is_url_by_urlparse(url):
 
     try:
         result = urlparse(url)
@@ -22,8 +30,8 @@ def _is_url(url):
 def _get_final_url(url, strict):
 
     if not strict:
-        if 'http' not in url:
-            final_url = 'https://' + url
+        if "http" not in url:
+            final_url = "https://" + url
         else:
             final_url = url
 

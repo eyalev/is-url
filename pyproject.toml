@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "is-url"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Eyal Levin <eyalev@gmail.com>"]
 
@@ -10,6 +10,7 @@ is-url = "is_url.cli:cli"
 [tool.poetry.dependencies]
 python = "^3.6"
 click = "^7.1.2"
+validators = "^0.15.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
